@@ -11,16 +11,12 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutReduxUser } from "../redux/slices/userSlice";
 
-
-
-// function Navbar({ user, setuser }) {
-
-  // let user = null
-  // let setUser = ()=>{}
-    function Navbar(){
-  let reduxUser = useSelector((reduxStore)=>reduxStore.user.value)
-  const cartItems = useSelector((reduxStore)=>{return reduxStore.cart.value})
-  const dispatch = useDispatch()
+function Navbar() {
+  let reduxUser = useSelector((reduxStore) => reduxStore.user.value);
+  const cartItems = useSelector((reduxStore) => {
+    return reduxStore.cart.value;
+  });
+  const dispatch = useDispatch();
 
   const [menu, setMenu] = useState(false);
   const [navItems, setNavItems] = useState(false);
@@ -41,28 +37,33 @@ import { logoutReduxUser } from "../redux/slices/userSlice";
           </div>
 
           <div className="hidden md:block">
-          <ul className="flex items-center gap-3">
-            {reduxUser ?
-              (
+            <ul className="flex items-center gap-3">
+              {reduxUser ? (
                 <>
-                <li className="text-lg text-green-400">{reduxUser.name} has logged in</li>
-                <li className="h-7 w-7 flex items-center px-[1px] bg-green-300 rounded-2xl">
-                  <img
-                    className="h-[90%] w-[90%] rounded-2xl"
-                    src="./src/assets/buyer.jpg"
-                    alt="buyer image"
-                  />
-                </li>
-                <Link onClick={()=>{
-                  dispatch(logoutReduxUser())
-                  // setUser(null)
-                  // dispatch(setReduxUser(null))
-                  // localStorage.removeItem("user")
-                }} className="ml-10">Logout</Link>
-                <Link className="flex" to="/cart"><BsCart2 className="text-lg" /><p className="text-[#FB2E86]">({cartItems.length})</p></Link> 
-                </> 
-              )
- : (
+                  <li className="text-[16px] text-green-400">
+                    {reduxUser.name} has logged in
+                  </li>
+                  <li className="h-7 w-7 flex items-center px-[1px] bg-green-300 rounded-2xl">
+                    <img
+                      className="h-[90%] w-[90%] rounded-2xl"
+                      src="./assets/buyer.jpg"
+                      alt="buyer image"
+                    />
+                  </li>
+                  <Link
+                    onClick={() => {
+                      dispatch(logoutReduxUser());
+                    }}
+                    className="ml-10"
+                  >
+                    Logout
+                  </Link>
+                  <Link className="flex" to="/cart">
+                    <BsCart2 className="text-lg" />
+                    <p className="text-[#FB2E86]">({cartItems.length})</p>
+                  </Link>
+                </>
+              ) : (
                 <ul className="flex gap-4 bottom-head">
                   <li>English</li>
                   <li>USD</li>
@@ -74,8 +75,8 @@ import { logoutReduxUser } from "../redux/slices/userSlice";
                     Wishlist <FaRegHeart className="ml-1" />
                   </li>
                 </ul>
-            )}
-          </ul>
+              )}
+            </ul>
           </div>
 
           <div className="md:hidden">
@@ -97,24 +98,31 @@ import { logoutReduxUser } from "../redux/slices/userSlice";
                   <li className="flex items-center">
                     Wishlist <FaRegHeart className="ml-1" />
                   </li>
-                 <Link className="flex" to="/cart"><BsCart2 className="text-lg" />
-                 <p className="text-[#FB2E86]">({cartItems.length})</p></Link> 
+                  <Link className="flex" to="/cart">
+                    <BsCart2 className="text-lg" />
+                    <p className="text-[#FB2E86]">({cartItems.length})</p>
+                  </Link>
                 </ul>
               </div>
             )}
           </div>
 
-{
-  reduxUser? <div className="md:hidden">
-  <Link onClick={()=>{
-          // setUser(null)
-          dispatch(logoutReduxUser())
-          // localStorage.removeItem("user")
-        }} className="ml-10">Logout</Link>
-  </div>:""
-}        
+          {reduxUser ? (
+            <div className="md:hidden">
+              <Link
+                onClick={() => {
+                  dispatch(logoutReduxUser());
+                }}
+                className="ml-10"
+              >
+                Logout
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="md:hidden mt-1 ml-2">
-            <button disabled = {reduxUser} onClick={() => setMenu(!menu)}>
+            <button disabled={reduxUser} onClick={() => setMenu(!menu)}>
               <GiHamburgerMenu />
             </button>
           </div>
@@ -137,14 +145,12 @@ import { logoutReduxUser } from "../redux/slices/userSlice";
                 <li>Products</li>
                 <li>Blog</li>
                 <li>Contact</li>
-                {
-                  reduxUser &&
+                {reduxUser && (
                   <>
-                  <li>Orders</li>
-                  <li>Cart</li>
+                    <li>Orders</li>
+                    <li>Cart</li>
                   </>
-                }
-                
+                )}
               </ul>
             </div>
             <div className="md:hidden">
@@ -161,13 +167,12 @@ import { logoutReduxUser } from "../redux/slices/userSlice";
                     <li>Products</li>
                     <li>Shop</li>
                     <li>Contact</li>
-                    {
-                  reduxUser &&
-                  <>
-                  <li>Orders</li>
-                  <li>Cart</li>
-                  </>
-                }
+                    {reduxUser && (
+                      <>
+                        <li>Orders</li>
+                        <li>Cart</li>
+                      </>
+                    )}
                   </ul>
                 </div>
               )}

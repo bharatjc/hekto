@@ -1,22 +1,12 @@
 import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 function Hero() {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
   return (
-    <Slider {...settings} className="z-10 no-scrollbar">
-      <div className="w-full pb-20  md:h-[calc(100vh-120px)] bg-[#F2F0FF] flex hero">
+    <>
+      <div className="w-full pb-20 mb-10  md:h-[calc(100vh-120px)] bg-[#F2F0FF] flex hero">
       <div className="flex container">
         <div className="ml-[-11vw] h-[250px] w-[150px] md:w-[300px] bg-cover">
-          <img src="./src/assets/lamp-pic.png" alt="lamp" />
+          <img src="./assets/lamp-pic.png" alt="lamp" />
           <div className="mt-[85px] ml-[50px]  md:ml-[90px] h-[10px] w-[10px] bg-[#FB2E86] rounded-lg"></div>
         </div>
 
@@ -39,7 +29,7 @@ function Hero() {
         <div className="hidden md:block relative my-[10px] w-[300px] h-[300px] mt-[70px] bg-cover">
           <img
             className="absolute z-40"
-            src="./src/assets/chair-pic.png"
+            src="./assets/chair-pic.png"
             alt="chair"
           />
           <div className="absolute z-20 w-[300px] h-[300px] rounded-full bg-[#ECD2FA]"></div>
@@ -52,7 +42,7 @@ function Hero() {
         </div>
       </div>
     </div>
-
+{/* 
       <div className="bg-[url('./assets/heroimage2.avif')] w-full h-[calc(100vh-120px)] bg-cover">
         <h3 className="text-2xl text-center my-40 text-white font-bold">Adventure is worthwhile.</h3>
       </div>
@@ -67,8 +57,8 @@ function Hero() {
       </div>
       <div className="bg-[url('./assets/heroimage6.avif')] w-full h-[calc(100vh-120px)] bg-cover">
         <h3 className="text-2xl text-center my-40 text-white font-bold">The journey of a thousand miles begins with a single step.</h3>
-      </div>
-    </Slider> 
+      </div> */}
+    </>
   );
 }
 

@@ -61,7 +61,7 @@ function Dashboard() {
             <div className="h-32 w-full bg-cover">
               <img
                 className="h-full w-full"
-                src="./src/assets/bargraph.jpg"
+                src="./assets/bargraph.jpg"
                 alt=""
               />
             </div>
