@@ -34,8 +34,6 @@ function App() {
     return store.user.value;
   });
 
-  // let reduxUser = {name: "sellername", role: "seller"}
-
   let router;
   router = createBrowserRouter([
     {
@@ -127,7 +125,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="flex h-full w-full items-center justify-center">
-        <img src="./src/assets/loading.gif" alt="loading" />
+        <img src="./assets/loading.gif" alt="loading" />
       </div>
     );
   }
